@@ -34,8 +34,7 @@ Logic Gates:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/ee17970c-3ac9-4603-881b-88e2825f41a4)
 
 VERILOG CODE 
-# Logic gates
-```
+
 module logicgate (a,b,andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate);
 input a,b;  
 output andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate;
@@ -47,19 +46,17 @@ nor(norgate,a,b);
 xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
-```
 
 OUTPUT 
 
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/623b4d0e-ed72-4086-8cd5-b835b1a623ee)
 
-Half Adder:
+Half Adder logic diagram:
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/0e1ecb96-0c25-4556-832b-aeeedfdfe7b9)
 
 VERILOG CODE
-# Half Adder
-```
+
 module half_adder(a,b,sum,carry);
 
 input a,b;
@@ -71,20 +68,17 @@ xor g1(sum,a,b);
 and g2(carry,a,b);
 
 endmodule
-```
 
 OUTPUT
 
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/e4ce171b-d4c9-4186-a631-704854b9111b)
 
-Full Adder:
+Full Adder logic diagram:
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/9bb3964c-438f-469d-a3de-c1cca6f323fb)
 
 VERILOG CODE
 
-# Full Adder
-```
 module fulladder(a,b,c,sum,carry);
 
 input a,b,c;
@@ -104,20 +98,17 @@ and(w3,a,b);
 or(carry,w2,w3);
 
 endmodule
-```
 
 OUTPUT
 
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/1d2ece6b-b016-4386-a3a2-ac12e9432997)
 
-Half Subtractor:
+Half Subtractor logic daigram:
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/731470b7-eb4e-49f8-8bb7-2994052a7184)
 
 VERILOG CODE
 
-# Half Subtractor
-```
 module halfsub(a,b,diff,borrow);
 
 input a,b;
@@ -129,21 +120,18 @@ xor(diff,a,b);
 and(borrow,~a,b);
 
 endmodule
-```
 
 OUTPUT
 
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/54615774-5749-4166-bbd2-a3c1e983f73c)
 
 
-Full Subtractor:
+Full Subtractor logic diagram:
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/d66f874b-c1f2-44b3-a035-7149b56430c1)
 
 VERILOG CODE
 
-# Full Subtractor
-```
 module fs(a,b,bin,d,bout);
 
 input a,b,bin;
@@ -163,21 +151,18 @@ and(w3,~w1,bin);
 or(bout,w3,w2);
 
 endmodule
-```
 
 OUTPUT
 
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/01292cc0-874d-4d27-85cb-c887794f6afc)
 
 
-8 Bit Ripple Carry Adder
+8 Bit Ripple Carry Adder logic diagram
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/7385a408-40a5-4203-8050-b72818622d79)
 
 VERILOG CODE
 
-# 8 Bit Ripple Carry Adder
-```
 module fulladder(a,b,c,sum,carry);
 input a,b,c;
 output sum,carry;
@@ -204,7 +189,6 @@ fulladder f6(a[5], b[5], w[5], s[5], w[6]);
 fulladder f7(a[6], b[6], w[6], s[6], w[7]);
 fulladder f8(a[7], b[7], w[7], s[7], cout);
 endmodule
-```
 
 OUTPUT
 
