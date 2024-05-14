@@ -32,36 +32,7 @@ Logic Diagram :
 Logic Gates:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/ee17970c-3ac9-4603-881b-88e2825f41a4)
 
-
-Half Adder:
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/0e1ecb96-0c25-4556-832b-aeeedfdfe7b9)
-
-
-Full adder:
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/9bb3964c-438f-469d-a3de-c1cca6f323fb)
-
-
-Half Subtractor:
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/731470b7-eb4e-49f8-8bb7-2994052a7184)
-
-
-
-Full Subtractor:
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/d66f874b-c1f2-44b3-a035-7149b56430c1)
-
-
-
-8 Bit Ripple Carry Adder
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/7385a408-40a5-4203-8050-b72818622d79)
-
-
-
-VERILOG CODE:
+VERILOG CODE 
 # Logic gates
 ```
 module logicgate (a,b,andgate,orgate,xorgate,nandgate,norgate,xnorgate,notgate);
@@ -76,110 +47,167 @@ xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
 ```
+
+OUTPUT 
+
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/623b4d0e-ed72-4086-8cd5-b835b1a623ee)
+
+Half Adder:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/0e1ecb96-0c25-4556-832b-aeeedfdfe7b9)
+
+VERILOG CODE
 # Half Adder
 ```
-module ha(a,b,sum,carry);
+module half_adder(a,b,sum,carry);
+
 input a,b;
+
 output sum,carry;
-endmodule
-module multi_2(a,b,p,carry);
-input [1:0]a,b;
-output [2:0]p;
-output carry;
-endmodule
-```
-# Half Subtractor
-```
-module halfsubtractor(a,b,diff,borrow);
-input a,b;
-output diff,borrow;
-xor g1(diff,a,b);
-and g2(borrow,~a,b);
+
+xor g1(sum,a,b);
+
+and g2(carry,a,b);
+
 endmodule
 ```
+
+OUTPUT
+
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/e4ce171b-d4c9-4186-a631-704854b9111b)
+
+Full Adder:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/9bb3964c-438f-469d-a3de-c1cca6f323fb)
+
+VERILOG CODE
+
 # Full Adder
 ```
-module fadd(a,b,c,sum,carry);
+module fulladder(a,b,c,sum,carry);
+
 input a,b,c;
+
 output sum,carry;
+
 wire w1,w2,w3;
-xor g1(w1,a,b);
-and g2(w2,a,b);
-xor g3(sum,w1,c);
-and g4(w3,w1,c);
-or g5(carry,w3,w2);
+
+xor(w1,a,b);
+
+xor(sum,w1,c);
+
+and(w2,w1,c);
+
+and(w3,a,b);
+
+or(carry,w2,w3);
+
 endmodule
 ```
+
+OUTPUT
+
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/1d2ece6b-b016-4386-a3a2-ac12e9432997)
+
+Half Subtractor:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/731470b7-eb4e-49f8-8bb7-2994052a7184)
+
+VERILOG CODE
+
+# Half Subtractor
+```
+module halfsub(a,b,diff,borrow);
+
+input a,b;
+
+output diff,borrow;
+
+xor(diff,a,b);
+
+and(borrow,~a,b);
+
+endmodule
+```
+
+OUTPUT
+
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/54615774-5749-4166-bbd2-a3c1e983f73c)
+
+
+Full Subtractor:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/d66f874b-c1f2-44b3-a035-7149b56430c1)
+
+VERILOG CODE
+
 # Full Subtractor
 ```
 module fs(a,b,bin,d,bout);
+
 input a,b,bin;
+
 output d,bout;
+
+wire w1,w2,w3;
+
+xor(w1,a,b);
+
+xor(d,w1,bin);
+
+and(w2,~a,b);
+
+and(w3,~w1,bin);
+
+or(bout,w3,w2);
+
+endmodule
+```
+
+OUTPUT
+
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/01292cc0-874d-4d27-85cb-c887794f6afc)
+
+
+8 Bit Ripple Carry Adder
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/7385a408-40a5-4203-8050-b72818622d79)
+
+VERILOG CODE
+
+# 8 Bit Ripple Carry Adder
+```
+module fulladder(a,b,c,sum,carry);
+input a,b,c;
+output sum,carry;
 wire w1,w2,w3;
 xor(w1,a,b);
-xor(d,w1,bin);
-and(w2,~a,b);
-and(w3,~w1,bin);
-or(bout,w3,w2);
-endmodule
-```
-# 8 bit Ripple Carry Adder
-```
-module rippe_adder(S,Cout,X,Y,Cin);
-input [7:0] X,Y;
-input Cin;
-output [7:0] S;
-output Cout;
-wire w1,w2,w3,w4,w5,w6,w7;
-fulladder u1(S[0],w1,X[0],Y[0],Cin);
-fulladder u2(S[1],w2,X[1],Y[1],w1);
-fulladder u3(S[2],w3,X[2],Y[2],w2);
-fulladder u4(S[3],w4,X[3],Y[3],w3);
-fulladder u5(S[4],w5,X[4],Y[4],w4);
-fulladder u6(S[5],w6,X[5],Y[5],w5);
-fulladder u7(S[6],w7,X[6],Y[6],w6);
-fulladder u8(S[7],Cout,X[7],Y[7],w7);
+xor(sum,w1,c);
+and(w2,w1,c);
+and(w3,a,b);
+or(carry,w2,w3);
 endmodule
 
-module fulladder(S,CO,X,Y,Ci);
-input X,Y,Ci;
-output S,CO;
-wire w1,w2,w3;
-xor G1(w1,X,Y);
-xor G2(S,w1,Ci);
-and G3(w2,X,Ci);
-and G4(w3,X,Y);
-or G5(CO,w3,w3);
+module rca_8bit(a,b,cin,s,cout);
+input [7:0]a,b;
+input cin;
+output [7:0]s;
+output cout;
+wire [7:1]w;
+fulladder f1(a[0], b[0], cin, s[0], w[1]);
+fulladder f2(a[1], b[1], w[1], s[1], w[2]);
+fulladder f3(a[2], b[2], w[2], s[2], w[3]);
+fulladder f4(a[3], b[3], w[3], s[3], w[4]);
+fulladder f5(a[4], b[4], w[4], s[4], w[5]);
+fulladder f6(a[5], b[5], w[5], s[5], w[6]);
+fulladder f7(a[6], b[6], w[6], s[6], w[7]);
+fulladder f8(a[7], b[7], w[7], s[7], cout);
 endmodule
 ```
 
-OUTPUT:
-# Logic gates
-# And Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/63457dad-a0fa-42c0-9ded-592f585c0e04)
-# Or Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/f03c5f10-1de7-4197-b45a-d243f64b5d3d)
-# Nand Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/c4f55516-fbdb-4ed7-9c36-39dbe3d6fb73)
-# Nor Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/ded32bb6-7e78-4b90-9527-471340dd7e11)
-# Xor Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/3e32a016-4b59-4c98-b931-2057e78361de)
-# Xnor Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/6f7cfb61-6c20-4b77-9a29-02f524f20cb6)
-# Not Gate
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/2e224bfc-04ac-420e-a70b-8044d9504d94)
-# Half Adder
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/3a9775e0-6c38-4cbf-9a75-4bfb552c4d3b)
-# Half Subtractor
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/bf72a1f8-8a5f-439b-a9e8-f28362433d3e)
-# Full Adder
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/92f26ec4-58ce-46ea-816f-9e468d2685ac)
-# Full Subtractor
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/e1d4658a-4be0-4179-a9ec-1473fdee1873)
-# 8 Bit Ripple Carry Adder
-![image](https://github.com/Binnu-123/VLSI-LAB-EXP-1/assets/161333609/b7dd8aec-fbf7-40a2-a94a-76b10bc3fb31)
+OUTPUT
 
+![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/ec60117b-ca69-42f2-835e-cc5584c94237)
 
 
 RESULT:
