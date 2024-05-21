@@ -130,14 +130,37 @@ or(bout,w3,w2);
 endmodule
 ```
 
+
+
+
+
 OUTPUT
 
+
 ![image](https://github.com/Rakshitha2004s/VLSI-LAB-EXP-1/assets/161333609/01292cc0-874d-4d27-85cb-c887794f6afc)
+
+
+
+
+
+
+
 
 
 8 Bit Ripple Carry Adder logic diagram
 
 ![image](https://github.com/navaneethans/VLSI-LAB-EXPERIMENTS/assets/6987778/7385a408-40a5-4203-8050-b72818622d79)
+
+
+
+
+
+
+
+
+
+
+
 
 VERILOG CODE
 
